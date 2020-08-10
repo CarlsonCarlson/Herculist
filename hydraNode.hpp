@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <string>
+#include <stdlib.h>
 
 using namespace std;
 
@@ -17,6 +18,14 @@ class hydraNode {
     hydraNode *next;
     hydraNode *prev;
     // TODO: date field
+    int priority; // 3 is highest priority and 1 is lowest priority (1-3)
+public:
+    //methods
+    hydraNode(string task, int priority);
+
+    ~hydraNode();
+
+    void printNode();
 };
 
 
