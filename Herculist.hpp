@@ -12,14 +12,15 @@ class Herculist {
     hydraNode *last;
     int size;
 public:
-    // methods
+    // constructor
     Herculist();
 
     ~Herculist();
 
+    // methods
     void addTask(int ind, string x); // at index (call by value)
     void removeTask(int ind); // at index (call by pointer)
-    void completeTask(); // at index (call by reference)
+    void completeTask(int ind); // at index (call by reference)
 };
 
 

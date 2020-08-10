@@ -6,11 +6,14 @@
 using namespace std;
 
 Herculist::~Herculist() {
-
+    // destructor
 }
 
 Herculist::Herculist() {
-
+    // Constructor
+    first = NULL;
+    last = NULL;
+    size = 0;
 }
 
 void Herculist::addTask(int ind, string x) // at index (call by value)
@@ -104,10 +107,30 @@ void Herculist::removeTask(int ind) // at index (call by pointer)
 }
 
 
-
-void Herculist::completeTask() // at index (call by reference)
+void Herculist::completeTask(int ind) // at index (call by reference)
 {
-
+    if (first == NULL) {
+        cout << "List is empty - cannot complete a task that doesn't exist!" << endl;
+        return;
+    }
+    if (ind + 1 > size) {
+        // catches if ind given doesn't exist
+        cout << "Error: index doesn't exist in Herculist size of " << size << endl;
+        return;
+    }
+    if (ind < 0) {
+        // catches if ind is a negative number
+        cout << "Error: Enter a positive number" << endl;
+        return;
+    }
+    // traverses list to index ind
+    hydraNode *temp = first;
+    int count = 0;
+    while (count < ind && temp != NULL) {
+        temp = temp->next;
+        count += 1;
+    }
+    temp->isComplete = true;
 }
 
 
