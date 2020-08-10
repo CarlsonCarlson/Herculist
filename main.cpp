@@ -1,7 +1,7 @@
 #include <iostream>
+#include <stdlib.h>
 #include "Herculist.hpp"
 #include "hydraNode.hpp"
-
 using namespace std;
 
 int main() {

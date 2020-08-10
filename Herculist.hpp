@@ -3,8 +3,9 @@
 #define HERCULIST_HERCULIST_HPP
 
 #include "hydraNode.hpp"
+#include <iostream>
 #include <stdlib.h>
-#include <string>
+using namespace std;
 
 class Herculist {
     hydraNode *first;
@@ -16,8 +17,8 @@ public:
 
     ~Herculist();
 
-    void addTask(); // at index (call by value)
-    void removeTask(); // at index (call by pointer)
+    void addTask(int ind, string x); // at index (call by value)
+    void removeTask(int ind); // at index (call by pointer)
     void completeTask(); // at index (call by reference)
 };
 

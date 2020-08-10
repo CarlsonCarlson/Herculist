@@ -8,7 +8,7 @@
 using namespace std;
 
 class hydraNode {
-    friend class herculist;
+    friend class Herculist;
 
     bool isComplete; // determines whether the task is marked as complete or not
     // TODO: possible try this
@@ -21,6 +21,7 @@ class hydraNode {
     int priority; // 3 is highest priority and 1 is lowest priority (1-3)
 public:
     //methods
+    hydraNode(string text);
     hydraNode(string task, int priority);
 
     ~hydraNode();
