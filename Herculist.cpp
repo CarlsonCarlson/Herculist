@@ -16,15 +16,20 @@ Herculist::Herculist() {
     size = 0;
 }
 
+Herculist::Herculist(string text) {
+    hydraNode *node = new hydraNode(text);
+    first = node;
+    last = node;
+    size = 1;
+}
+
 void Herculist::addTask(int ind, string x) // at index (call by value)
 {
-	if(first == NULL)	// adds node to empty list
-	{
-		first = new hydraNode(x);
-		last = first;
-	}
-	else
-	{
+    if (first == NULL)    // adds node to empty list
+    {
+        first = new hydraNode(x);
+        last = first;
+    } else {
 		hydraNode* temp = first;
 		int count = 1;
 		while(count < ind && temp != NULL)
@@ -133,4 +138,25 @@ void Herculist::completeTask(int ind) // at index (call by reference)
     temp->isComplete = true;
 }
 
+hydraNode *Herculist::getFirst() {
+    // TODO: is that right ?
+    return first;
+}
+
+hydraNode *Herculist::getLast() {
+    // TODO: is that right ?
+    return last;
+}
+
+void Herculist::printList(hydraNode *currNode) {
+    // recursive
+    if (currNode->next == NULL) {
+        // base case
+        currNode->printNode();
+        return;
+    }
+    currNode->printNode();
+    printList(currNode->next);
+
+}
 

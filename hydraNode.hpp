@@ -22,11 +22,15 @@ class hydraNode {
 public:
     //methods
     hydraNode(string text);
+
     hydraNode(string task, int priority);
 
     ~hydraNode();
 
     void printNode();
+
+    // getters
+    hydraNode *getNext();
 };
 
 

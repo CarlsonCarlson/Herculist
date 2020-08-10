@@ -35,10 +35,18 @@ void hydraNode::printNode() {
         priorityText = "**";
     } else if (priority == 1) {
         priorityText = "*";
-    } else{
+    } else {
         priorityText = "";
     }
 
-    cout << priorityText << " " << task << endl;
-    // TODO: add date on second line
+    if (priorityText == "") {
+        cout << task << endl;
+    } else {
+        cout << priorityText << " " << task << endl;
+        // TODO: add date on second line
+    }
+}
+
+hydraNode *hydraNode::getNext() {
+    return next;
 }
