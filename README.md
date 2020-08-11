@@ -1,2 +1,2 @@
 # Herculist
-A HERCULEAN to-do list
+A To-Do list of Herculean Proportions
