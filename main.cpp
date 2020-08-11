@@ -82,9 +82,22 @@ int main() {
             int index = askIndex();
             currList->removeTask(index);
         } else if (optionChosen == "p" || optionChosen == "P") {
-            int index = askIndex();
+            bool indexIsValid = false;
+            int index;
+            while (!indexIsValid) {
+                index = askIndex();
+                if (index + 1 > currList->getSize()) {
+                    // catches if ind given doesn't exist
+                    cout << "Error: index doesn't exist in Herculist size of " << currList->getSize() << endl;
+                } else if (index < 0) {
+                    // catches if ind is a negative number
+                    cout << "Error: Enter a positive number" << endl;
+                } else {
+                    indexIsValid = true;
+                }
+            }
             hydraNode *temp = currList->getFirst();
-            int count = 1;
+            int count = 0;
             while (count < index && temp != NULL) {
                 temp = temp->getNext();
                 count += 1;
