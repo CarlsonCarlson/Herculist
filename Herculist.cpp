@@ -220,7 +220,7 @@ int Herculist::getSize() {
     return size;
 }
 
-void Herculist::printList(hydraNode *currNode, int count) {
+void Herculist::printList(hydraNode *currNode, int &count) {
     // recursive
     if (currNode->next == NULL) {
         // base case

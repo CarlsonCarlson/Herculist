@@ -16,7 +16,7 @@ Herculist sortByPriority(Herculist *currList) {
     for (int i = 0; i < currList->getSize(); i++) {
         // iterate through original list until no nodes are left
         hydraNode *max = currList->getFirst();
-        for (int j = 0; j < currList->getSize(); i++) {
+        for (int j = 0; j < currList->getSize(); j++) {
             // find max priority
             hydraNode *temp = currList->getFirst();
             if (temp->getPriority() > max->getPriority()) {
@@ -30,7 +30,7 @@ Herculist sortByPriority(Herculist *currList) {
         //  takes in a node
         currList->removeNode(max);
     }
-    return *currList;
+    return *newList;
 
 
 }
@@ -63,7 +63,8 @@ int main() {
     initialText = askTask();
     Herculist *currList = new Herculist(initialText);
     cout << endl;
-    currList->printList(currList->getFirst(), 0);
+    int firstCount = 0;
+    currList->printList(currList->getFirst(), firstCount);
     cout << endl;
     while (running) {
         string optionChosen;
@@ -123,7 +124,8 @@ int main() {
             cout << endl;
         } else {
             cout << endl;
-            currList->printList(currList->getFirst(), 0);
+            int printCount = 0;
+            currList->printList(currList->getFirst(), printCount);
             cout << endl;
         }
     }
