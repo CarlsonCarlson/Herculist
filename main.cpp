@@ -23,10 +23,12 @@ int main() {
 }
 
 Herculist sortByPriority() {
-
+    //must not unsort an already sorted list if given one
+    // must be able to sort a reverse sorted list
+    // needs to sort lost that has duplicates
+    // needs to sort chainsaw pattern up/down
 }
 
 Herculist sortByDate() {
-
 }
 
