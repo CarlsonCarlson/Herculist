@@ -20,19 +20,22 @@ class hydraNode {
     // TODO: date field
     int priority; // 3 is highest priority and 1 is lowest priority (1-3)
 public:
-    //methods
-    void setPriority(int star);
-
+    // Constructors and destructor
     hydraNode(string text);
 
     hydraNode(string task, int priority);
 
     ~hydraNode();
 
+    //methods
+    void setPriority(int star);
+
     void printNode(int count);
 
     // getters
     hydraNode *getNext();
+
+    int getPriority();
 };
 
 

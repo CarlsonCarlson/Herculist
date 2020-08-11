@@ -52,10 +52,11 @@ hydraNode *hydraNode::getNext() {
     return next;
 }
 
+int hydraNode::getPriority() {
+    return priority;
+}
 
 void hydraNode::setPriority(int star)
 {
 	priority = star;
 }
-
-

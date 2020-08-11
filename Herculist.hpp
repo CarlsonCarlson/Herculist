@@ -26,9 +26,17 @@ public:
     void completeTask(int ind); // at index (call by reference)
     void printList(hydraNode *currNode, int count);
 
+    void insertAtEnd(hydraNode *node);
+
+    void removeNode(hydraNode *node);
+
+    // getter
     hydraNode *getFirst();
 
     hydraNode *getLast();
+
+    int getSize();
+
 };
 
 

@@ -173,6 +173,39 @@ void Herculist::completeTask(int ind) // at index (call by reference)
     temp->isComplete = true;
 }
 
+void Herculist::insertAtEnd(hydraNode *node) {
+    if (size > 0) {
+        node->next = NULL;
+        node->prev = last;
+        last->next = node;
+        last = node;
+    } else {
+        // inserting first node in list
+        first = node;
+        last = node;
+    }
+    size++;
+}
+
+void Herculist::removeNode(hydraNode *node) {
+    if (first == NULL) {
+        cout << "this list is empty";
+        return;
+    }
+    hydraNode *temp = first;
+    while (temp != node && temp != NULL) {
+        temp = temp->next;
+    }
+    if (temp != NULL) {
+        temp->next->prev = temp->prev;
+        temp->prev->next = temp->next;
+        size--;
+    } else {
+        cout << "node doesn't exist in this list";
+    }
+}
+
+//getters
 hydraNode *Herculist::getFirst() {
     // TODO: is that right ?
     return first;
@@ -181,6 +214,10 @@ hydraNode *Herculist::getFirst() {
 hydraNode *Herculist::getLast() {
     // TODO: is that right ?
     return last;
+}
+
+int Herculist::getSize() {
+    return size;
 }
 
 void Herculist::printList(hydraNode *currNode, int count) {
@@ -193,6 +230,6 @@ void Herculist::printList(hydraNode *currNode, int count) {
     currNode->printNode(count);
     count++;
     printList(currNode->next, count);
-
 }
+
 
