@@ -51,3 +51,11 @@ void hydraNode::printNode(int count) {
 hydraNode *hydraNode::getNext() {
     return next;
 }
+
+
+void hydraNode::setPriority(int star)
+{
+	priority = star;
+}
+
+

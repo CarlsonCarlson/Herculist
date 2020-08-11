@@ -21,6 +21,8 @@ class hydraNode {
     int priority; // 3 is highest priority and 1 is lowest priority (1-3)
 public:
     //methods
+    void setPriority(int star);
+
     hydraNode(string text);
 
     hydraNode(string task, int priority);
