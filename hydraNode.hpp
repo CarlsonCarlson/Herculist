@@ -27,7 +27,7 @@ public:
 
     ~hydraNode();
 
-    void printNode();
+    void printNode(int count);
 
     // getters
     hydraNode *getNext();
