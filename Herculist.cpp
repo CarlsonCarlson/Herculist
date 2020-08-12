@@ -22,6 +22,7 @@ Herculist::Herculist(string text) {
 Herculist::~Herculist() {
     // destructor
 }
+
 void Herculist::addTask(int ind, string x) // at index (call by value)
 {
     if (ind > size) {
@@ -76,8 +77,6 @@ void Herculist::addTask(int ind, string x) // at index (call by value)
 	size+=1;
 }
 
-
-
 void Herculist::removeTask(int ind)
 {
     if (first == NULL) {
@@ -102,7 +101,6 @@ void Herculist::removeTask(int ind)
         count += 1;
     }
     if (ind == 0 && temp == last) { // remove only node in list
-        // TODO: only node in list
         first = NULL;
         last = NULL;
         delete temp;
@@ -135,7 +133,6 @@ void Herculist::removeTask(int ind)
 		size--;
 	}
 }
-
 
 void Herculist::completeTask(int ind)
 {
@@ -211,12 +208,10 @@ void Herculist::removeNode(hydraNode *node) {
 
 //getters
 hydraNode *Herculist::getFirst() {
-    // TODO: is that right ?
     return first;
 }
 
 hydraNode *Herculist::getLast() {
-    // TODO: is that right ?
     return last;
 }
 
@@ -235,5 +230,3 @@ void Herculist::printList(hydraNode *currNode, int &count) {
     count++;
     printList(currNode->next, count);
 }
-
-

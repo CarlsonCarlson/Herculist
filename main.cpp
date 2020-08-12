@@ -7,11 +7,6 @@
 using namespace std;
 
 Herculist sortByPriority(Herculist *currList) {
-    // must not unsort an already sorted list if given one
-    // must be able to sort a reverse sorted list
-    // needs to sort lost that has duplicates
-    // needs to sort chainsaw pattern up/down
-    // TODO: make exception that doesn't allow it it sort an empty list
     Herculist *newList = new Herculist();
     while (currList->getSize() > 0) {
         // iterate through original list until no nodes are left
@@ -22,9 +17,7 @@ Herculist sortByPriority(Herculist *currList) {
             if (temp->getPriority() > max->getPriority()) {
                 max = temp;
             }
-//            if (temp != NULL) {
             temp = temp->getNext();
-//            }
         }
         // insert max to end of new list
         newList->insertAtEnd(max);
@@ -32,14 +25,7 @@ Herculist sortByPriority(Herculist *currList) {
         currList->removeNode(max);
     }
     return *newList;
-
-
 }
-
-// TODO: maybe later
-//Herculist sortByDate() {
-//
-//}
 
 string askTask() {
     cout << "Enter task: ";
@@ -74,7 +60,6 @@ int main() {
         if (optionChosen == "e" || optionChosen == "E") {
             running = false;
         } else if (optionChosen == "a" || optionChosen == "A") {
-            // TODO: add at bottom and add at top
             string task = askTask();
             int index = askIndex();
             currList->addTask(index, task);
@@ -105,7 +90,6 @@ int main() {
             bool isValid = false;
             while (!isValid) {
                 cout << "Enter priority (*) from 0-3: ";
-                // TODO: give error message if not 0-3
                 string star;
                 getline(cin, star);
                 if ((stoi(star) >= 0 && stoi(star) <= 3)) {

@@ -24,11 +24,10 @@ hydraNode::hydraNode(string text, int stars, bool taskComplete) {
 
 hydraNode::~hydraNode() {
     // destructor
-//    cout << "Deleted: '" << task << "'" << endl;
+	// cout << "Deleted: '" << task << "'" << endl;
 }
 
 void hydraNode::printNode(int count) {
-    // TODO: include something that shows if the task is complete or not
     string priorityText;
     if (priority == 3) {
         priorityText = "***";
@@ -52,7 +51,6 @@ void hydraNode::printNode(int count) {
         } else {
             cout << "#" << count << ": " << priorityText << " " << task << endl;
         }
-        // TODO: add date on second line
     }
 }
 
