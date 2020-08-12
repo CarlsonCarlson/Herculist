@@ -5,10 +5,6 @@
 #include <stdlib.h>
 using namespace std;
 
-Herculist::~Herculist() {
-    // destructor
-}
-
 Herculist::Herculist() {
     // Constructor
     first = NULL;
@@ -23,6 +19,9 @@ Herculist::Herculist(string text) {
     size = 1;
 }
 
+Herculist::~Herculist() {
+    // destructor
+}
 void Herculist::addTask(int ind, string x) // at index (call by value)
 {
     if (ind > size) {
@@ -79,7 +78,7 @@ void Herculist::addTask(int ind, string x) // at index (call by value)
 
 
 
-void Herculist::removeTask(int ind) // at index (call by pointer)
+void Herculist::removeTask(int ind)
 {
     if (first == NULL) {
         cout << "List is empty - cannot remove a task that doesn't exist!" << endl;
@@ -108,15 +107,6 @@ void Herculist::removeTask(int ind) // at index (call by pointer)
         last = NULL;
         delete temp;
         size--;
-//        if(first != NULL)
-//        {
-//            first->prev = NULL;
-//        }
-//        last = last->prev;
-//        if(last != NULL)
-//        {
-//            last->next = NULL;
-//        }
     } else if (ind == 0)    // removes first node in list
     {
         first = first->next;
@@ -147,7 +137,7 @@ void Herculist::removeTask(int ind) // at index (call by pointer)
 }
 
 
-void Herculist::completeTask(int ind) // at index (call by reference)
+void Herculist::completeTask(int ind)
 {
     if (first == NULL) {
         cout << "List is empty - cannot complete a task that doesn't exist!" << endl;
@@ -174,7 +164,6 @@ void Herculist::completeTask(int ind) // at index (call by reference)
 }
 
 void Herculist::insertAtEnd(hydraNode *node) {
-    // TODO: new constructor for isComplete may be needed
     hydraNode *newNode = new hydraNode(node->task, node->priority, node->isComplete);
     if (size > 0) {
         newNode->next = NULL;
