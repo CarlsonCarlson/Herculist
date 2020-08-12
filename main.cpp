@@ -29,8 +29,6 @@ Herculist sortByPriority(Herculist *currList) {
         // insert max to end of new list
         newList->insertAtEnd(max);
         // remove max from currList
-        // TODO: remove function that is part of Herculist
-        //  takes in a node
         currList->removeNode(max);
     }
     return *newList;
