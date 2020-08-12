@@ -22,18 +22,16 @@ public:
     void addTask(int ind, string x); // at index (call by value)
     void removeTask(int ind); // at index (call by pointer)
     void completeTask(int ind); // at index (call by reference)
-    void printList(hydraNode *currNode, int &count);
-
     void insertAtEnd(hydraNode *node);
-
     void removeNode(hydraNode *node);
 
     // getter
     hydraNode *getFirst();
-
     hydraNode *getLast();
-
     int getSize();
+
+    // Print
+    void printList(hydraNode *currNode, int &count);
 
 };
 

@@ -38,9 +38,10 @@ Herculist sortByPriority(Herculist *currList) {
 
 }
 
-Herculist sortByDate() {
-
-}
+// TODO: maybe later
+//Herculist sortByDate() {
+//
+//}
 
 string askTask() {
     cout << "Enter task: ";
@@ -51,7 +52,6 @@ string askTask() {
 
 int askIndex() {
     cout << "Enter line number: ";
-//    cin >> index;
     string index;
     getline(cin, index);
     return stoi(index);
@@ -59,9 +59,6 @@ int askIndex() {
 
 int main() {
     bool running = true;
-//    string initialText;
-//    cout << "Enter your first task" << endl;
-//    getline(cin, initialText);
     string initialText;
     initialText = askTask();
     Herculist *currList = new Herculist(initialText);
