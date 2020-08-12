@@ -160,7 +160,12 @@ void Herculist::completeTask(int ind)
         temp = temp->next;
         count += 1;
     }
-    temp->isComplete = true;
+    if (!temp->isComplete) {
+        temp->isComplete = true;
+    }
+    else if (temp->isComplete) {
+        temp->isComplete = false;
+    }
 }
 
 void Herculist::insertAtEnd(hydraNode *node) {
