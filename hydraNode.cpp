@@ -13,18 +13,18 @@ hydraNode::hydraNode(string text) {
     isComplete = false;
 }
 
-hydraNode::hydraNode(string text, int stars) {
+hydraNode::hydraNode(string text, int stars, bool taskComplete) {
     // Constructor
     next = NULL;
     prev = NULL;
     task = text;
     priority = stars;
-    isComplete = false;
+    isComplete = taskComplete;
 }
 
 hydraNode::~hydraNode() {
     // destructor
-    cout << "Deleted: '" << task << "'" << endl;
+//    cout << "Deleted: '" << task << "'" << endl;
 }
 
 void hydraNode::printNode(int count) {
@@ -41,9 +41,17 @@ void hydraNode::printNode(int count) {
     }
 
     if (priorityText == "") {
-        cout << "#" << count << ": " << task << endl;
+        if (isComplete) {
+            cout << "#" << count << ": " << "-----" << task << "-----" << endl;
+        } else {
+            cout << "#" << count << ": " << task << endl;
+        }
     } else {
-        cout << "#" << count << ": " << priorityText << " " << task << endl;
+        if (isComplete) {
+            cout << "#" << count << ": " << "----- " << priorityText << " " << task << "-----" << endl;
+        } else {
+            cout << "#" << count << ": " << priorityText << " " << task << endl;
+        }
         // TODO: add date on second line
     }
 }

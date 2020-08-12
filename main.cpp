@@ -13,15 +13,18 @@ Herculist sortByPriority(Herculist *currList) {
     // needs to sort chainsaw pattern up/down
     // TODO: make exception that doesn't allow it it sort an empty list
     Herculist *newList = new Herculist();
-    for (int i = 0; i < currList->getSize(); i++) {
+    while (currList->getSize() > 0) {
         // iterate through original list until no nodes are left
         hydraNode *max = currList->getFirst();
-        for (int j = 0; j < currList->getSize(); j++) {
+        hydraNode *temp = currList->getFirst();
+        while (temp != NULL) {
             // find max priority
-            hydraNode *temp = currList->getFirst();
             if (temp->getPriority() > max->getPriority()) {
                 max = temp;
             }
+//            if (temp != NULL) {
+            temp = temp->getNext();
+//            }
         }
         // insert max to end of new list
         newList->insertAtEnd(max);
@@ -69,10 +72,11 @@ int main() {
     while (running) {
         string optionChosen;
         cout
-                << "Add Task (a) --- Delete Task (d) ---  Set Priority (p)  --- Sort by Priority (s) --- Close Herculist (c)"
+                << "Add Task (a) --- Complete Task (c) --- Delete Task (d) ---  Set Priority (p)  --- Sort by Priority (s) --- Exit Herculist (e)"
                 << endl;
+        cout << "Option: ";
         getline(cin, optionChosen);
-        if (optionChosen == "c" || optionChosen == "C") {
+        if (optionChosen == "e" || optionChosen == "E") {
             running = false;
         } else if (optionChosen == "a" || optionChosen == "A") {
             // TODO: add at bottom and add at top
@@ -116,6 +120,9 @@ int main() {
             }
         } else if (optionChosen == "s" || optionChosen == "S") {
             *currList = sortByPriority(currList);
+        } else if (optionChosen == "c" || optionChosen == "C") {
+            int index = askIndex();
+            currList->completeTask(index);
         }
 
         if (currList->getFirst() == NULL && currList->getLast() == NULL) {

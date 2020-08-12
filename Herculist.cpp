@@ -174,34 +174,44 @@ void Herculist::completeTask(int ind) // at index (call by reference)
 }
 
 void Herculist::insertAtEnd(hydraNode *node) {
+    // TODO: new constructor for isComplete may be needed
+    hydraNode *newNode = new hydraNode(node->task, node->priority, node->isComplete);
     if (size > 0) {
-        node->next = NULL;
-        node->prev = last;
-        last->next = node;
-        last = node;
+        newNode->next = NULL;
+        newNode->prev = last;
+        last->next = newNode;
+        last = newNode;
     } else {
         // inserting first node in list
-        first = node;
-        last = node;
+        first = newNode;
+        last = newNode;
     }
     size++;
 }
 
 void Herculist::removeNode(hydraNode *node) {
-    if (first == NULL) {
-        cout << "this list is empty";
-        return;
-    }
-    hydraNode *temp = first;
-    while (temp != node && temp != NULL) {
-        temp = temp->next;
-    }
-    if (temp != NULL) {
-        temp->next->prev = temp->prev;
-        temp->prev->next = temp->next;
+    if (node == first)    // removes first node in list
+    {
+        first = first->next;
+        if (first != NULL) {
+            first->prev = NULL;
+        }
+        delete node;
         size--;
-    } else {
-        cout << "node doesn't exist in this list";
+    } else if (node == last)    // removes last node in list
+    {
+        node = last;
+        last = last->prev;
+        if (last != NULL) {
+            last->next = NULL;
+        }
+        delete node;
+        size--;
+    } else if (node != NULL) {
+        node->prev->next = node->next;
+        node->next->prev = node->prev;
+        delete node;
+        size--;
     }
 }
 

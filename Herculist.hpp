@@ -15,9 +15,7 @@ class Herculist {
 public:
     // constructor
     Herculist();
-
     Herculist(string text);
-
     ~Herculist();
 
     // methods

@@ -23,7 +23,7 @@ public:
     // Constructors and destructor
     hydraNode(string text);
 
-    hydraNode(string task, int priority);
+    hydraNode(string task, int priority, bool isComplete);
 
     ~hydraNode();
 
